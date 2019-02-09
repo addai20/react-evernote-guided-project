@@ -139,6 +139,10 @@ div.sidebar ul li:hover {
   overflow: scroll;
 }
 
+.truncate {
+  /* this is to truncate the body of the note */
+}
+
 .detail {
   width:75%;
 }
