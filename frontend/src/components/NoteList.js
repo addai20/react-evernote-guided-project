@@ -7,8 +7,10 @@ const NoteList = (props) => {
   return (
 
     <ul>
-      {props.allNotes.map(note =>
+      {props.allNotes.map((note, idx) =>
       <NoteItem
+        noteItemClickHandler = {props.noteItemClickHandler}
+        key = {note.id}
         noteInfo = {note}
         />)}
 

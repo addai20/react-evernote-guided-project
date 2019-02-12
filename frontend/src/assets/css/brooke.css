@@ -125,6 +125,7 @@ div.sidebar ul li:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  overflow-y: scroll;
 }
 
 .master-detail-element {

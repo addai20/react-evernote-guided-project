@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class NoteItem extends Component {
 
-   truncate = (body)=> {
+  truncate = (body)=> {
     if (this.props.noteInfo.body.length > 45){
       return this.props.noteInfo.body.slice(0, 44) + "...";
     } else {
@@ -10,17 +10,15 @@ class NoteItem extends Component {
     }
   }
 
-      //LEFT OFF HERE
-  //   function noteClickHandler(){
-  //   console.log("Note Clicked")
-  // }
+
+
 
   render() {
+//on click of the note item (<li/>), content.js will have NoteView rendered to it
     return (
-      <li>
+      <li onClick= {()=> {this.props.noteItemClickHandler(this.props.noteInfo)}}>
         <h2>{this.props.noteInfo.title}</h2>
         <p>
-
           {this.truncate(this.props.noteInfo.body)}
         </p>
       </li>

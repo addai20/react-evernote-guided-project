@@ -5,8 +5,13 @@ class Sidebar extends Component {
   render() {
     return (
       <div className='master-detail-element sidebar'>
-        <NoteList allNotes = {this.props.allNotes}/>
-        <button>New</button>
+        <NoteList
+          allNotes = {this.props.allNotes}
+          noteItemClickHandler = {this.props.noteItemClickHandler}
+          />
+        <button
+          onClick={this.props.newNoteHandler}
+          >New</button>
       </div>
     );
   }

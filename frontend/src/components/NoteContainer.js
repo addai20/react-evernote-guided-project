@@ -9,10 +9,26 @@ class NoteContainer extends Component {
     this.state = {
       uNotes: [],
       // currentUser: {},
-      displayedComp: "Instructions"
+      displayedComp: "Instructions",
+      currentNote: null
     }
     //consider adding click handler here
   }
+
+  noteItemUpdateHandler = (note)=> {
+    console.log("update function initiates")
+  }
+
+// When clicked, stores clicked note and its props into 'currentNote'
+  noteItemClickHandler = (note)=> {
+      // debugger
+      console.log("Note Item Clicked!")
+      this.setState({
+        currentNote: note
+      })
+    }
+
+
 
   componentDidMount(){
     // debugger
@@ -21,7 +37,11 @@ class NoteContainer extends Component {
         return response.json();
       })
       .then(noteData => {
-        this.setState({ uNotes: noteData.notes });
+        this.setState({
+          uNotes: noteData.notes,
+          displayedComp: noteData.displayedComp
+
+        });
         console.log("Notes fetched!",noteData)
       })
   }
@@ -31,8 +51,14 @@ class NoteContainer extends Component {
       <Fragment>
         <Search />
         <div className='container'>
-          <Sidebar allNotes={this.state.uNotes}/>
-          <Content />
+          <Sidebar
+            allNotes={this.state.uNotes}
+            noteItemClickHandler = {this.noteItemClickHandler}
+            />
+          <Content
+            allData={this.state}
+            currentNote = {this.state.currentNote}
+            />
         </div>
       </Fragment>
     );
